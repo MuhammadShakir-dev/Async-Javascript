@@ -27,18 +27,25 @@
         
         )
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+// with multiple rquests.
+   fakeRequests("books.com",
+        function(success){
+            console.log("IT WORKED");
+            console.log(success)
+            fakeRequests('books.com/page2',
+            function(success){
+                console.log("IT WORKED AGAIN");
+                  console.log(success)
+            },
+            function(failure){
+                console.log("ERROR!!!", failure)
+            }
+            )
+        }, function(failure){
+            console.log("Opps Error")
+            console.log(failure)
+        }
+        
+        )
 
 // the promises.
